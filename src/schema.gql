@@ -1,0 +1,12 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Superpersonas {
+  nombre: String!
+  ciudad_de_residencia: String
+}
+
+type Query {
+  superpersonas: [Superpersonas!]!
+}
