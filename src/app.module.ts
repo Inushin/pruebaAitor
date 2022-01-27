@@ -1,8 +1,7 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path/posix';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { SuperpersonasModule } from './superpersonas/superpersonas.module';
 
 @Module({
@@ -10,8 +9,17 @@ import { SuperpersonasModule } from './superpersonas/superpersonas.module';
     autoSchemaFile: join(process.cwd(),'src/schema.gql'),
   }),
   SuperpersonasModule,
-],
-  controllers: [AppController],
-  providers: [AppService],
+  TypeOrmModule.forRoot({
+    type: 'postgres',
+    host: 'localhost',
+    port: 5432,
+    username: 'aitor',
+    password: 'aitor.123',
+    database: 'superpersonas',
+    entities: ["dist/**/*.entity{.ts,.js}"],
+    synchronize: true,
+  })],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

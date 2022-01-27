@@ -10,3 +10,18 @@ type Superpersonas {
 type Query {
   superpersonas: [Superpersonas!]!
 }
+
+type Mutation {
+  CrearSuperpersona(superpersonasCreacion: CrearSuperpersonas!): Superpersonas!
+  BorrarSuperpersona(eliminarsuperpersona: RemovePersonas!): Superpersonas!
+}
+
+input CrearSuperpersonas {
+  nombre: String!
+  ciudad_de_residencia: String
+}
+
+input RemovePersonas {
+  nombre: String!
+  ciudad_de_residencia: String
+}
