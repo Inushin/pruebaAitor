@@ -1,14 +1,19 @@
 import { Field, Int, ObjectType } from "@nestjs/graphql";
-import { Max, Min } from "class-validator";
-import { validate } from "graphql";
 import { type } from "os";
-import { min } from "rxjs";
-import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Connection, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { EmbeddedMetadata } from "typeorm/metadata/EmbeddedMetadata";
+import { Caracteristicas} from "./caracteristicas";
+
 
 @ObjectType()
 @Entity()
-export class Superpersonas {
+export class Superpersonas{
+
+    /*Dada la finalidad y estructura del proyecto se decide utilizar el propio nombre como PrimaryKey en lugar de un ID numérico
+    autoincremental. De esta manera, nos saltamos parte de la lógica fundamental de las BBDD relacionales, pero
+    ahorraremos tiempo en futuros pasos al trabajar directamente con el nombre como valor único en lugar de con un ID y un campo
+    con la caracterísitca "unique".
+    */
     @Field()
     @PrimaryColumn()
     nombre!: string;
@@ -16,32 +21,9 @@ export class Superpersonas {
     @Field({nullable:true})
     @Column({nullable:true})
     ciudad_de_residencia?: string;
-/*
-    @Field(type => Int)
-    @Column({type:"smallint", default:0})
-    @Min(0)
-    @Max(100)
-    fuerza!: number;
 
-    @Field(type => Int)
-    @Column({type:"smallint", default:0})
-    @Min(0)
-    @Max(100)
-    inteligencia!: number;
+    
+    @Column(()=> Caracteristicas,)
+    caracteristicas: Caracteristicas[];
 
-    @Field(type => Int)
-    @Column({type:"smallint", default:0})
-    @Min(0)
-    @Max(100)
-    salud!: number;
-
-    /*
-    ENUM CON DOS VALORES "Superheroe" y "Villano"
-    @Field()
-    tipo: string;
-*//*
-    @Field(type => Boolean)
-    @Column({default:true})
-    activo!: Boolean;
-*/
 }

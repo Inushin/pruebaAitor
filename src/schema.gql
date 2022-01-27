@@ -9,14 +9,21 @@ type Superpersonas {
 
 type Query {
   superpersonas: [Superpersonas!]!
+  getSuperpersona(nombre: String!): Superpersonas!
 }
 
 type Mutation {
   CrearSuperpersona(superpersonasCreacion: CrearSuperpersonas!): Superpersonas!
+  ActualizarSuperpersona(actualizacionsuperpersona: UpdatePersonas!): Superpersonas!
   BorrarSuperpersona(eliminarsuperpersona: RemovePersonas!): Superpersonas!
 }
 
 input CrearSuperpersonas {
+  nombre: String!
+  ciudad_de_residencia: String
+}
+
+input UpdatePersonas {
   nombre: String!
   ciudad_de_residencia: String
 }

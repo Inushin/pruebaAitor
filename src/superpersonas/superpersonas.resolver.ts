@@ -14,17 +14,23 @@ export class SuperpersonasResolver {
         return this.superpersonasService.findAll();
     }
 
+    @Query(returns => Superpersonas)
+    getSuperpersona(@Args('nombre') nombre:string):Promise<Superpersonas>
+    {
+        return this.superpersonasService.findOne(nombre);
+    }
+
     @Mutation(() => Superpersonas, { name: "CrearSuperpersona" })
-    create(@Args('superpersonasCreacion') superpersonas: CrearSuperpersonas) {
+    create(@Args('superpersonasCreacion') superpersonas: CrearSuperpersonas):Promise<Superpersonas> {
         return this.superpersonasService.create(superpersonas);
     }
 
-/*
+
     @Mutation(() => Superpersonas, { name: "ActualizarSuperpersona" })
     update(@Args('actualizacionsuperpersona') superpersonas: UpdatePersonas) {
-        return this.superpersonasService.update(superpersonas);
+        return this.superpersonasService.update(superpersonas.nombre, superpersonas.ciudad_de_residencia);
     }
-    */
+    
     
 
     @Mutation(() => Superpersonas, { name: "BorrarSuperpersona" })
