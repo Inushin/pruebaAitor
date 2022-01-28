@@ -2,9 +2,17 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Caracteristicas {
+  fuerza: Int!
+  inteligencia: Int!
+  salud: Int!
+  activo: Boolean!
+}
+
 type Superpersonas {
   nombre: String!
   ciudad_de_residencia: String
+  caracteristicas: Caracteristicas!
 }
 
 type Query {

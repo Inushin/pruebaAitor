@@ -6,7 +6,7 @@ export enum Tipos {
     Superheroe = "superheroe",
     Villano = "villano",
 }
-
+@Entity()
 @ObjectType()
 export class Caracteristicas {
     @Field(type => Int)
