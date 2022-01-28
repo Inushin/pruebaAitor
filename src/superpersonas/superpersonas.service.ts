@@ -1,7 +1,7 @@
 import { Delete, Get, Injectable, Param, Post, Put } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Caracteristicas } from './caracteristicas';
+import { Caracteristicas } from './migration/caracteristicas';
 import { CrearSuperpersonas } from './dto/crearsuperpersonas';
 import { RemovePersonas } from './dto/removepersonas';
 import { UpdatePersonas } from './dto/updatepersonas';
@@ -12,11 +12,14 @@ import { Superpersonas } from './superpersonas.entity';
 export class SuperpersonasService {
 
     constructor(@InjectRepository(Superpersonas) private superpersonasRepository: Repository<Superpersonas>) {}
+
     @Get()
     async findAll():Promise<Superpersonas[]>
     {
         return this.superpersonasRepository.find();
     }
+
+
     @Post('create')
     async create(superpersonas:CrearSuperpersonas):Promise<Superpersonas>
     {
@@ -25,10 +28,11 @@ export class SuperpersonasService {
     }
 
    @Put(':nombre/update')
-    async update(nombre: string, ciudad_de_residencia:string) : Promise<Superpersonas> {
+    async update(nombre: string, ciudad_de_residencia:string, fuerza:number) : Promise<Superpersonas> {
         let user = await this.findOne(nombre);
         //Ampliar para modificar todos los campos
         user.ciudad_de_residencia = ciudad_de_residencia;
+        user.caracteristicas.fuerza=fuerza;
         return this.superpersonasRepository.save(user);
     }
     

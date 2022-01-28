@@ -1,5 +1,7 @@
-import { Field, InputType } from "@nestjs/graphql";
-import { Length, MaxLength } from "class-validator";
+import { Field, InputType, Int } from "@nestjs/graphql";
+import { Length, Max, MaxLength, Min } from "class-validator";
+import { type } from "os";
+import { Caracteristicas } from "../migration/caracteristicas";
 
 @InputType()
 export class CrearSuperpersonas {
@@ -7,9 +9,10 @@ export class CrearSuperpersonas {
     @MaxLength(100)
     nombre!: string;
 
-    @Field({nullable:true})
+    @Field({ nullable: true })
     ciudad_de_residencia?: string;
 
-   //@Field()
-   // caracteristicas: Caracteristicas[];
+
+    @Field(type => Caracteristicas)
+    caracteristicas: Caracteristicas;
 }

@@ -2,7 +2,7 @@ import { Field, Int, ObjectType } from "@nestjs/graphql";
 import { type } from "os";
 import { Column, Connection, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { EmbeddedMetadata } from "typeorm/metadata/EmbeddedMetadata";
-import { Caracteristicas} from "./caracteristicas";
+import { Caracteristicas} from "./migration/caracteristicas";
 
 
 @ObjectType()

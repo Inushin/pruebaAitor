@@ -15,6 +15,13 @@ type Superpersonas {
   caracteristicas: Caracteristicas!
 }
 
+input CaracteristicasInput {
+  fuerza: Int!
+  inteligencia: Int!
+  salud: Int!
+  activo: Boolean!
+}
+
 type Query {
   superpersonas: [Superpersonas!]!
   getSuperpersona(nombre: String!): Superpersonas!
@@ -29,14 +36,17 @@ type Mutation {
 input CrearSuperpersonas {
   nombre: String!
   ciudad_de_residencia: String
+  caracteristicas: CaracteristicasInput!
 }
 
 input UpdatePersonas {
   nombre: String!
   ciudad_de_residencia: String
+  caracteristicas: CaracteristicasInput
 }
 
 input RemovePersonas {
   nombre: String!
   ciudad_de_residencia: String
+  caracteristicas: CaracteristicasInput
 }
