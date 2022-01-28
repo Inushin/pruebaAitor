@@ -22,8 +22,8 @@ export class Superpersonas{
     @Column({nullable:true})
     ciudad_de_residencia?: string;
 
-    
-    @Column(()=> Caracteristicas,)
-    caracteristicas: Caracteristicas[];
+    //@Field(type => [Caracteristicas], {nullable:true})
+    @Column(()=> Caracteristicas)
+    caracteristicas!: Caracteristicas[];
 
 }
