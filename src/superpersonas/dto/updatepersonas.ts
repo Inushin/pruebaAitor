@@ -1,6 +1,7 @@
 import { Field, InputType } from "@nestjs/graphql";
 import { MaxLength } from "class-validator";
 import { Caracteristicas } from "../migration/caracteristicas";
+import { CaracteristicasInput } from "./caractertisticasinput";
 
 @InputType()
 export class UpdatePersonas {
@@ -11,7 +12,7 @@ export class UpdatePersonas {
     @Field({nullable:true})
     ciudad_de_residencia?: string;
 
-    @Field(type => Caracteristicas, {nullable:true})
-    caracteristicas?: Caracteristicas;
+    @Field({nullable:true})
+    caracteristicas?: CaracteristicasInput;
 
 }

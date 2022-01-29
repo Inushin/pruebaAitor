@@ -1,7 +1,7 @@
 import { Delete, Get, Injectable, Param, Post, Put } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Caracteristicas } from './migration/caracteristicas';
+import { Caracteristicas, Tipos } from './migration/caracteristicas';
 import { CrearSuperpersonas } from './dto/crearsuperpersonas';
 import { RemovePersonas } from './dto/removepersonas';
 import { UpdatePersonas } from './dto/updatepersonas';
@@ -28,11 +28,15 @@ export class SuperpersonasService {
     }
 
    @Put(':nombre/update')
-    async update(nombre: string, ciudad_de_residencia:string, fuerza:number) : Promise<Superpersonas> {
+    async update(nombre: string, ciudad_de_residencia:string, fuerza:number, salud: number, inteligencia:number, tipos:Tipos[], activo: boolean) : Promise<Superpersonas> {
         let user = await this.findOne(nombre);
         //Ampliar para modificar todos los campos
+        user.nombre=nombre;
         user.ciudad_de_residencia = ciudad_de_residencia;
         user.caracteristicas.fuerza=fuerza;
+        user.caracteristicas.inteligencia=inteligencia;
+        user.caracteristicas.salud=salud;
+        user.caracteristicas.tipos=tipos;
         return this.superpersonasRepository.save(user);
     }
     

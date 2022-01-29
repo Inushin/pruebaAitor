@@ -15,13 +15,6 @@ type Superpersonas {
   caracteristicas: Caracteristicas!
 }
 
-input CaracteristicasInput {
-  fuerza: Int!
-  inteligencia: Int!
-  salud: Int!
-  activo: Boolean!
-}
-
 type Query {
   superpersonas: [Superpersonas!]!
   getSuperpersona(nombre: String!): Superpersonas!
@@ -37,6 +30,13 @@ input CrearSuperpersonas {
   nombre: String!
   ciudad_de_residencia: String
   caracteristicas: CaracteristicasInput!
+}
+
+input CaracteristicasInput {
+  fuerza: Int!
+  inteligencia: Int!
+  salud: Int!
+  activo: Boolean!
 }
 
 input UpdatePersonas {

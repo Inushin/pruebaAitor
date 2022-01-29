@@ -28,7 +28,7 @@ export class SuperpersonasResolver {
 
     @Mutation(() => Superpersonas, { name: "ActualizarSuperpersona" })
     update(@Args('actualizacionsuperpersona') superpersonas: UpdatePersonas) {
-        return this.superpersonasService.update(superpersonas.nombre, superpersonas.ciudad_de_residencia, superpersonas.caracteristicas.fuerza);
+        return this.superpersonasService.update(superpersonas.nombre, superpersonas.ciudad_de_residencia, superpersonas.caracteristicas.fuerza, superpersonas.caracteristicas.inteligencia, superpersonas.caracteristicas.salud, superpersonas.caracteristicas.tipos, superpersonas.caracteristicas.activo);
     }
     
     
