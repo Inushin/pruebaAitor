@@ -2,7 +2,6 @@ import { Field, Int, ObjectType } from "@nestjs/graphql";
 import { Column, Entity, PrimaryColumn } from "typeorm";
 import { Caracteristicas} from "./entities/caracteristicas";
 
-
 @ObjectType()
 @Entity()
 export class Superpersonas{

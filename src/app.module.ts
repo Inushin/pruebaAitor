@@ -5,6 +5,10 @@ import { join } from 'path/posix';
 import { SuperpersonasModule } from './superpersonas/superpersonas.module';
 import { UserPruebaModule } from './user/user.module';
 
+/*
+  Metodología seguida -> Code first. schema.gql autogenerado
+*/
+
 @Module({
   imports: [GraphQLModule.forRoot({
     autoSchemaFile: join(process.cwd(),'src/schema.gql'),

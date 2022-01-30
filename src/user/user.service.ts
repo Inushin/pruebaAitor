@@ -9,26 +9,24 @@ export class UserService {
 
     constructor(
         @InjectRepository(UserPrueba) private userRepository: Repository<UserPrueba>
-        ) { }
+    ) { }
 
     @Get()
     async findAll(): Promise<UserPrueba[]> {
         return this.userRepository.find();
     }
 
-
     @Post('user/registro')
     async create(user: CrearUsuario): Promise<UserPrueba> {
         let usuario = this.userRepository.create(user);
         return this.userRepository.save(usuario);
     }
+
     /*
-    async findOne(nombre:string):Promise<Superpersonas>
+    @Post('user/login')
+    async findOne(condition:any):Promise<UserPrueba>
     {
-        return this.superpersonasRepository.findOneOrFail(nombre);
+        return this.userRepository.findOneOrFail(condition);
     }
     */
-   
-
-
 }

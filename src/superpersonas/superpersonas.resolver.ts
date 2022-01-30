@@ -5,6 +5,11 @@ import { UpdatePersonas } from './dto/updatepersonas';
 import { Superpersonas } from './superpersonas.entity';
 import { SuperpersonasService } from './superpersonas.service';
 
+/*
+    Generación de DTOs independientes para habilitar implementaciones independientes y evitar
+    redundancias y bucles con GraphQL
+*/
+
 @Resolver(of => Superpersonas)
 export class SuperpersonasResolver {
     constructor(private superpersonasService: SuperpersonasService) { }
