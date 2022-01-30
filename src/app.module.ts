@@ -3,12 +3,14 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path/posix';
 import { SuperpersonasModule } from './superpersonas/superpersonas.module';
+import { UserPruebaModule } from './user/user.module';
 
 @Module({
   imports: [GraphQLModule.forRoot({
     autoSchemaFile: join(process.cwd(),'src/schema.gql'),
   }),
   SuperpersonasModule,
+  UserPruebaModule,
   TypeOrmModule.forRoot({
     type: 'postgres',
     host: 'localhost',

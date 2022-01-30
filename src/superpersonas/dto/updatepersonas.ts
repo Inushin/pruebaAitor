@@ -1,6 +1,5 @@
 import { Field, InputType } from "@nestjs/graphql";
 import { MaxLength } from "class-validator";
-import { Caracteristicas } from "../migration/caracteristicas";
 import { CaracteristicasInput } from "./caractertisticasinput";
 
 @InputType()

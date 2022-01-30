@@ -1,5 +1,4 @@
-import { Field, InputType, Int, ObjectType } from "@nestjs/graphql";
-import { Max, Min } from "class-validator";
+import { Field, Int, ObjectType } from "@nestjs/graphql";
 import { Column, Entity } from "typeorm";
 
 

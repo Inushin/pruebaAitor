@@ -1,6 +1,6 @@
 import { Field, Int, ObjectType } from "@nestjs/graphql";
-import { Column, Entity, PrimaryColumn } from "typeorm";
-import { Caracteristicas} from "./entities/caracteristicas";
+import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Caracteristicas} from "./caracteristicas";
 
 
 @ObjectType()

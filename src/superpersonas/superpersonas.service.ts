@@ -1,11 +1,8 @@
 import { Delete, Get, Injectable, Param, Post, Put } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Caracteristicas, Tipos } from './migration/caracteristicas';
+import { Tipos } from './entities/caracteristicas';
 import { CrearSuperpersonas } from './dto/crearsuperpersonas';
-import { RemovePersonas } from './dto/removepersonas';
-import { UpdatePersonas } from './dto/updatepersonas';
-
 import { Superpersonas } from './superpersonas.entity';
 
 @Injectable()
